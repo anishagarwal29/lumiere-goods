@@ -7,7 +7,7 @@ export const createProductChatSession = (product: Product): ChatSession => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   return ai.chats.create({
-    model: 'gemini-1.5-flash',
+    model: 'gemini-3-flash-preview',
     config: {
       systemInstruction: `You are a highly skilled and persuasive sales assistant for 'Nova Dropship', a premium lifestyle store.
       
