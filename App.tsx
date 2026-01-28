@@ -96,7 +96,7 @@ const App: React.FC = () => {
             }} />
             <AnnouncementBar />
             <ProductList
-              products={PRODUCTS}
+              products={PRODUCTS.slice(0, 3)}
               onProductClick={handleProductClick}
               onAddToCart={(p) => handleAddToCart(p, 1)}
             />
