@@ -6,6 +6,7 @@ import ProductDetails from './components/ProductDetails';
 import AnnouncementBar from './components/AnnouncementBar';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import ContactUs from './components/ContactUs';
 import CartDrawer from './components/CartDrawer';
 import { PRODUCTS, TESTIMONIALS } from './constants';
 import { Product, CartItem, ViewState } from './types';
@@ -141,6 +142,10 @@ const App: React.FC = () => {
         {view === 'terms-of-service' && (
           <TermsOfService onBack={handleHomeClick} />
         )}
+
+        {view === 'contact' && (
+          <ContactUs onBack={handleHomeClick} />
+        )}
       </main>
 
       <CartDrawer
@@ -158,7 +163,7 @@ const App: React.FC = () => {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <button onClick={() => { setView('privacy-policy'); window.scrollTo(0, 0); }} className="hover:text-black">Privacy Policy</button>
             <button onClick={() => { setView('terms-of-service'); window.scrollTo(0, 0); }} className="hover:text-black">Terms of Service</button>
-            <a href="#" className="hover:text-black">Contact</a>
+            <button onClick={() => { setView('contact'); window.scrollTo(0, 0); }} className="hover:text-black">Contact</button>
           </div>
         </div>
       </footer>
