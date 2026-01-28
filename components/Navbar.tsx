@@ -37,11 +37,9 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
             </span>
           </div>
 
-          {/* Desktop Links */}
+          {/* Desktop Links - Hidden as requested */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={onHomeClick} className="text-sm font-medium text-slate-600 hover:text-black transition-colors">Shop All</button>
-            <button className="text-sm font-medium text-slate-600 hover:text-black transition-colors">New Arrivals</button>
-            <button className="text-sm font-medium text-slate-600 hover:text-black transition-colors">About</button>
+            {/* Links removed */}
           </div>
 
           {/* Actions */}
@@ -60,26 +58,11 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
                 </span>
               )}
             </button>
-            <button
-              className="md:hidden p-2 text-slate-600"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg p-4 animate-fade-in">
-          <div className="flex flex-col space-y-4">
-            <button onClick={() => { onHomeClick(); setIsMobileMenuOpen(false); }} className="text-left font-medium text-lg">Shop All</button>
-            <button className="text-left font-medium text-lg text-slate-600">New Arrivals</button>
-            <button className="text-left font-medium text-lg text-slate-600">About</button>
-          </div>
-        </div>
-      )}
+      {/* Mobile Menu - Removed */}
     </nav>
   );
 };

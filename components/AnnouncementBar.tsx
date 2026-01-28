@@ -7,7 +7,7 @@ const AnnouncementBar: React.FC = () => {
     const items = Array(10).fill(`${text}${separator}`);
 
     return (
-        <div className="bg-blue-600 text-white overflow-hidden py-3 sticky top-0 z-[100] shadow-md border-b border-blue-700">
+        <div className="bg-blue-600 text-white overflow-hidden py-3 sticky top-16 z-[40] shadow-md border-b border-blue-700">
             <div className="whitespace-nowrap flex animate-marquee">
                 {/* Render content twice for seamless loop */}
                 <div className="flex items-center">
