@@ -22,7 +22,7 @@ export const createProductChatSession = (product: Product): ChatSession | null =
 
   try {
     return ai.chats.create({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-1.5-flash-001',
       config: {
         systemInstruction: `You are a highly skilled and persuasive sales assistant for 'Nova Dropship', a premium lifestyle store.
         
