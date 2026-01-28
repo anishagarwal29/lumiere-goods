@@ -21,66 +21,75 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 py-4' : 'bg-transparent py-6'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer group" onClick={onHomeClick}>
-            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-2 transition-transform group-hover:rotate-12">
-              <span className="text-white font-bold text-xl">L</span>
+    <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+      <nav
+        className={`w-full transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-4' : 'bg-transparent py-6'
+          }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <div className="flex items-center cursor-pointer group" onClick={onHomeClick}>
+              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-2 transition-transform group-hover:rotate-12">
+                <span className="text-white font-bold text-xl">L</span>
+              </div>
+              <span className={`text-2xl font-bold tracking-tighter ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>
+                LUMIERE
+              </span>
             </div>
-            <span className={`text-2xl font-bold tracking-tighter ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>
-              LUMIERE
-            </span>
-          </div>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button onClick={onHomeClick} className="text-sm font-medium text-slate-600 hover:text-black transition-colors">Shop All</button>
-            <button className="text-sm font-medium text-slate-600 hover:text-black transition-colors">New Arrivals</button>
-            <button className="text-sm font-medium text-slate-600 hover:text-black transition-colors">About</button>
-          </div>
+            {/* Desktop Links */}
+            <div className="hidden md:flex items-center space-x-8">
+              <button onClick={onHomeClick} className="text-sm font-medium text-slate-600 hover:text-black transition-colors">Shop All</button>
+              <button className="text-sm font-medium text-slate-600 hover:text-black transition-colors">New Arrivals</button>
+              <button className="text-sm font-medium text-slate-600 hover:text-black transition-colors">About</button>
+            </div>
 
-          {/* Actions */}
-          <div className="flex items-center space-x-4">
-            <button className="p-2 text-slate-600 hover:text-black transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <button
-              className="p-2 text-slate-600 hover:text-black transition-colors relative"
-              onClick={onCartClick}
-            >
-              <ShoppingBag className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-black rounded-full">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-            <button
-              className="md:hidden p-2 text-slate-600"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Actions */}
+            <div className="flex items-center space-x-4">
+              <button className="p-2 text-slate-600 hover:text-black transition-colors">
+                <Search className="w-5 h-5" />
+              </button>
+              <button
+                className="p-2 text-slate-600 hover:text-black transition-colors relative"
+                onClick={onCartClick}
+              >
+                <ShoppingBag className="w-5 h-5" />
+                {cartCount > 0 && (
+                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-black rounded-full">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+              <button
+                className="md:hidden p-2 text-slate-600"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg p-4 animate-fade-in">
+            <div className="flex flex-col space-y-4">
+              <button onClick={() => { onHomeClick(); setIsMobileMenuOpen(false); }} className="text-left font-medium text-lg">Shop All</button>
+              <button className="text-left font-medium text-lg text-slate-600">New Arrivals</button>
+              <button className="text-left font-medium text-lg text-slate-600">About</button>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Sticky Announcement Bar */}
+      <div className="bg-blue-600 w-full py-2.5 text-center shadow-md relative z-40">
+        <p className="text-white text-xs md:text-sm font-bold tracking-wider uppercase">
+          50% OFF — <span className="opacity-90 font-normal">With Global Shipping</span>
+        </p>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg p-4 animate-fade-in">
-          <div className="flex flex-col space-y-4">
-            <button onClick={() => { onHomeClick(); setIsMobileMenuOpen(false); }} className="text-left font-medium text-lg">Shop All</button>
-            <button className="text-left font-medium text-lg text-slate-600">New Arrivals</button>
-            <button className="text-left font-medium text-lg text-slate-600">About</button>
-          </div>
-        </div>
-      )}
-    </nav>
+    </div>
   );
 };
 
