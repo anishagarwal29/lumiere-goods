@@ -69,7 +69,7 @@ const TermsOfService: React.FC<TermsOfServiceProps> = ({ onBack }) => {
 
                     <h2 className="text-xl font-bold mt-8 mb-4">8. Contact Information</h2>
                     <p className="mb-6 text-slate-700">
-                        Questions about the Terms of Service should be sent to us at <a href="mailto:alishanfidai12@gmail.com" className="text-blue-600 hover:underline">alishanfidai12@gmail.com</a>.
+                        Questions about the Terms of Service should be sent to us at <a href="mailto:lumieregoodshelp@gmail.com" className="text-blue-600 hover:underline">lumieregoodshelp@gmail.com</a>.
                     </p>
                 </div>
             </div>

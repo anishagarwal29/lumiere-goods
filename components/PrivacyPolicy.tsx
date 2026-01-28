@@ -57,7 +57,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
 
                     <h2 className="text-xl font-bold mt-8 mb-4">5. Your Rights</h2>
                     <p className="mb-6 text-slate-700">
-                        If you want to know what personal data we hold about you, or if you want us to delete it, just email us at <a href="mailto:alishanfidai12@gmail.com" className="text-blue-600 hover:underline">alishanfidai12@gmail.com</a>.
+                        If you want to know what personal data we hold about you, or if you want us to delete it, just email us at <a href="mailto:lumieregoodshelp@gmail.com" className="text-blue-600 hover:underline">lumieregoodshelp@gmail.com</a>.
                     </p>
                 </div>
             </div>
