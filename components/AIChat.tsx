@@ -20,10 +20,18 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen && !chatSession) {
       // Initialize chat session when opened for the first time
-      setChatSession(createProductChatSession(product));
-      setMessages([
-        { role: 'model', text: `Hi there! 👋 I'm your AI assistant for the ${product.name}. Ask me anything about features, specs, or shipping!` }
-      ]);
+      const session = createProductChatSession(product);
+      setChatSession(session);
+
+      if (session) {
+        setMessages([
+          { role: 'model', text: `Hi there! 👋 I'm your AI assistant for the ${product.name}. Ask me anything about features, specs, or shipping!` }
+        ]);
+      } else {
+        setMessages([
+          { role: 'model', text: `Hi! The AI service is currently unavailable (API key missing). Please try again later or contact support.` }
+        ]);
+      }
     }
   }, [isOpen, product, chatSession]);
 
@@ -73,12 +81,11 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white">
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div 
-              className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-                msg.role === 'user' 
-                  ? 'bg-slate-900 text-white rounded-br-none' 
+            <div
+              className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${msg.role === 'user'
+                  ? 'bg-slate-900 text-white rounded-br-none'
                   : 'bg-slate-100 text-slate-800 rounded-bl-none'
-              }`}
+                }`}
             >
               {msg.text}
             </div>
@@ -107,7 +114,7 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
             placeholder="Type your question..."
             className="flex-1 bg-slate-100 border-none rounded-full px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-shadow"
           />
-          <button 
+          <button
             onClick={handleSend}
             disabled={!input.trim() || isLoading}
             className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg"
