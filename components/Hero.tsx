@@ -11,7 +11,8 @@ const Hero: React.FC<HeroProps> = ({ onShopNow }) => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://picsum.photos/id/445/1920/1080"
+          src="/hero-test-2.png"
+          // Original Image: src="https://picsum.photos/id/445/1920/1080"
           alt="Hero Background"
           className="w-full h-full object-cover opacity-90"
         />
