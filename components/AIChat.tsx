@@ -19,17 +19,17 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen && !chatSession) {
-      // Initialize chat session when opened for the first time
-      const session = createProductChatSession(product);
-      setChatSession(session);
-
-      if (session) {
+      try {
+        // Initialize chat session when opened for the first time
+        const session = createProductChatSession(product);
+        setChatSession(session);
         setMessages([
           { role: 'model', text: `Hi there! 👋 I'm your AI assistant for the ${product.name}. Ask me anything about features, specs, or shipping!` }
         ]);
-      } else {
+      } catch (error) {
+        console.error("Failed to initialize chat session:", error);
         setMessages([
-          { role: 'model', text: `Hi! The AI service is currently unavailable (API key missing). Please try again later or contact support.` }
+          { role: 'model', text: "I'm having trouble starting up right now. Please check if the API key is configured correctly." }
         ]);
       }
     }
