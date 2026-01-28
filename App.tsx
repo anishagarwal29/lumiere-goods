@@ -157,7 +157,7 @@ const App: React.FC = () => {
           <p>&copy; 2024 Lumiere Goods. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <button onClick={() => { setView('privacy-policy'); window.scrollTo(0, 0); }} className="hover:text-black">Privacy Policy</button>
-            <a href="#" className="hover:text-black">Terms of Service</a>
+            <button onClick={() => { setView('terms-of-service'); window.scrollTo(0, 0); }} className="hover:text-black">Terms of Service</button>
             <a href="#" className="hover:text-black">Contact</a>
           </div>
         </div>
