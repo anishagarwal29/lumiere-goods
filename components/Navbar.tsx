@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
               className="p-2 text-slate-600 hover:text-black transition-colors relative"
               onClick={onCartClick}
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-6 h-6" />
               {cartCount > 0 && (
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-black rounded-full">
                   {cartCount}
