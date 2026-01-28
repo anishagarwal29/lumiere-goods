@@ -44,9 +44,9 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <button className="p-2 text-slate-600 hover:text-black transition-colors">
+            {/* <button className="p-2 text-slate-600 hover:text-black transition-colors">
               <Search className="w-5 h-5" />
-            </button>
+            </button> */}
             <button
               className="p-2 text-slate-600 hover:text-black transition-colors relative"
               onClick={onCartClick}
