@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AnnouncementBar: React.FC = () => {
-    const text = "50% OFF — <span class='font-normal opacity-90'>With Global Shipping</span>";
+    const text = "Limited Time Offer: 50% OFF — <span class='font-normal opacity-90'>Free Global Shipping for All Products</span>";
     const separator = " • ";
     // Create an array to repeat the text enough times to fill the screen + buffer
     const items = Array(10).fill(`${text}${separator}`);
