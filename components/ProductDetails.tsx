@@ -120,7 +120,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, onBack, onAddT
             </div>
 
             {/* AI Help Trigger */}
-            {/* <div className="mt-6">
+            <div className="mt-6">
               <button
                 onClick={() => setIsChatOpen(true)}
                 className="w-full flex items-center justify-center space-x-2 py-3 px-4 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-xl hover:from-blue-100 hover:to-indigo-100 transition-colors border border-blue-100"
@@ -128,12 +128,12 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, onBack, onAddT
                 <Sparkles className="w-5 h-5" />
                 <span className="font-medium">Have questions? Ask our AI Specialist</span>
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* <AIChat product={product} isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} /> */}
+      <AIChat product={product} isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };
