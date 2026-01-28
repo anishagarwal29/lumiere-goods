@@ -5,6 +5,7 @@ import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import AnnouncementBar from './components/AnnouncementBar';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 import CartDrawer from './components/CartDrawer';
 import { PRODUCTS, TESTIMONIALS } from './constants';
 import { Product, CartItem, ViewState } from './types';
@@ -135,6 +136,10 @@ const App: React.FC = () => {
 
         {view === 'privacy-policy' && (
           <PrivacyPolicy onBack={handleHomeClick} />
+        )}
+
+        {view === 'terms-of-service' && (
+          <TermsOfService onBack={handleHomeClick} />
         )}
       </main>
 
