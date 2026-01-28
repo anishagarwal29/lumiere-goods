@@ -5,7 +5,7 @@ let aiClient: GoogleGenAI | null = null;
 
 const getGeminiClient = (): GoogleGenAI | null => {
   if (aiClient) return aiClient;
-  
+
   const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
   if (!apiKey) {
     console.warn("Gemini API Key is missing. AI features will be disabled.");
@@ -22,7 +22,7 @@ export const createProductChatSession = (product: Product): ChatSession | null =
 
   try {
     return ai.chats.create({
-      model: 'gemini-2.0-flash-exp',
+      model: 'gemini-1.5-flash',
       config: {
         systemInstruction: `You are a highly skilled and persuasive sales assistant for 'Nova Dropship', a premium lifestyle store.
         
@@ -57,8 +57,8 @@ export const sendMessageToAI = async (chatSession: ChatSession | null, message: 
   try {
     const response = await chatSession.sendMessage({ message });
     return response.text || "I'm sorry, I didn't catch that. Could you repeat?";
-  } catch (error) {
+  } catch (error: any) {
     console.error("Gemini API Error:", error);
-    return "I'm currently having trouble connecting to the server. Please try again later.";
+    return `I'm currently having trouble connecting to the server. (Error: ${error.message || 'Unknown'})`;
   }
 };
