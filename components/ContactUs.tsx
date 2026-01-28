@@ -20,11 +20,21 @@ const ContactUs: React.FC<ContactUsProps> = ({ onBack }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Construct mailto link
+        const subject = encodeURIComponent(`Support Request: ${formState.name} ${formState.orderNumber ? `- Order #${formState.orderNumber}` : ''}`);
+        const body = encodeURIComponent(
+            `Name: ${formState.name}
+Email: ${formState.email}
+Order Number: ${formState.orderNumber || 'N/A'}
+
+Message:
+${formState.message}`
+        );
+
+        window.location.href = `mailto:lumieregoodshelp@gmail.com?subject=${subject}&body=${body}`;
+
         setIsSubmitted(true);
-        // Simulate submission
-        setTimeout(() => {
-            // In a real app, this would send data
-        }, 1000);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
