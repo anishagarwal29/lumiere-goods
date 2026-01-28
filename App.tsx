@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
+import AnnouncementBar from './components/AnnouncementBar';
 import CartDrawer from './components/CartDrawer';
 import { PRODUCTS, TESTIMONIALS } from './constants';
 import { Product, CartItem, ViewState } from './types';
@@ -75,6 +76,7 @@ const App: React.FC = () => {
             <Hero onShopNow={() => {
               document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' });
             }} />
+            <AnnouncementBar />
             <ProductList
               products={PRODUCTS}
               onProductClick={handleProductClick}
