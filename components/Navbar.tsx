@@ -21,20 +21,19 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
   }, []);
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 py-4' : 'bg-transparent py-6'
-      }`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 py-4' : 'bg-transparent py-6'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center cursor-pointer group" onClick={onHomeClick}>
             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center mr-2 transition-transform group-hover:rotate-12">
-               <span className="text-white font-bold text-xl">N</span>
+              <span className="text-white font-bold text-xl">L</span>
             </div>
             <span className={`text-2xl font-bold tracking-tighter ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>
-              NOVA
+              LUMIERE
             </span>
           </div>
 
@@ -50,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
             <button className="p-2 text-slate-600 hover:text-black transition-colors">
               <Search className="w-5 h-5" />
             </button>
-            <button 
+            <button
               className="p-2 text-slate-600 hover:text-black transition-colors relative"
               onClick={onCartClick}
             >
@@ -61,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ cartCount, onCartClick, onHomeClick }) 
                 </span>
               )}
             </button>
-            <button 
+            <button
               className="md:hidden p-2 text-slate-600"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >

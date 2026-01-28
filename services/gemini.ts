@@ -9,7 +9,7 @@ export const createProductChatSession = (product: Product): ChatSession => {
   return ai.chats.create({
     model: 'gemini-3-flash-preview',
     config: {
-      systemInstruction: `You are a highly skilled and persuasive sales assistant for 'Nova Dropship', a premium lifestyle store.
+      systemInstruction: `You are a highly skilled and persuasive sales assistant for 'Lumiere Goods', a premium lifestyle store.
       
       You are currently assisting a customer who is looking at the following product:
       Name: ${product.name}

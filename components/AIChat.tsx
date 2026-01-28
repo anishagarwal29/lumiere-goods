@@ -68,7 +68,7 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="font-bold text-slate-900 text-sm">Nova AI Assistant</h3>
+            <h3 className="font-bold text-slate-900 text-sm">Lumiere AI Assistant</h3>
             <p className="text-xs text-slate-500">Ask about {product.name}</p>
           </div>
         </div>

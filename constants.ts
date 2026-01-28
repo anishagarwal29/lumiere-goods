@@ -25,11 +25,11 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'p3',
-    name: 'Nova Weekender Bag',
+    name: 'Lumiere Weekender Bag',
     price: 120.00,
     category: 'Fashion',
     image: 'https://picsum.photos/id/20/800/800',
-    description: 'The ultimate travel companion. Constructed from waterproof ballistic nylon with genuine leather accents, the Nova Weekender fits everything you need for a 3-day getaway while keeping you stylish.',
+    description: 'The ultimate travel companion. Constructed from waterproof ballistic nylon with genuine leather accents, the Lumiere Weekender fits everything you need for a 3-day getaway while keeping you stylish.',
     features: ['Waterproof', 'Laptop Compartment', 'Shoe Pocket', 'Lifetime Warranty'],
     rating: 4.7,
     reviews: 42
