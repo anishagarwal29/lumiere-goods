@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import AnnouncementBar from './components/AnnouncementBar';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import CartDrawer from './components/CartDrawer';
 import { PRODUCTS, TESTIMONIALS } from './constants';
 import { Product, CartItem, ViewState } from './types';
@@ -16,7 +17,22 @@ const App: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
-  // Load cart from local storage on mount (optional enhancement, kept simple for now)
+  // Load cart from local storage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('lumiere-cart');
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (e) {
+        console.error("Failed to parse cart", e);
+      }
+    }
+  }, []);
+
+  // Save cart to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('lumiere-cart', JSON.stringify(cart));
+  }, [cart]);
 
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
@@ -116,6 +132,10 @@ const App: React.FC = () => {
             onAddToCart={handleAddToCart}
           />
         )}
+
+        {view === 'privacy-policy' && (
+          <PrivacyPolicy onBack={handleHomeClick} />
+        )}
       </main>
 
       <CartDrawer
@@ -131,7 +151,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
           <p>&copy; 2024 Lumiere Goods. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-black">Privacy Policy</a>
+            <button onClick={() => { setView('privacy-policy'); window.scrollTo(0, 0); }} className="hover:text-black">Privacy Policy</button>
             <a href="#" className="hover:text-black">Terms of Service</a>
             <a href="#" className="hover:text-black">Contact</a>
           </div>

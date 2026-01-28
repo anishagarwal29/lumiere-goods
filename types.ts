@@ -14,7 +14,7 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
-export type ViewState = 'home' | 'product-details';
+export type ViewState = 'home' | 'product-details' | 'privacy-policy';
 
 export interface ChatMessage {
   role: 'user' | 'model';
