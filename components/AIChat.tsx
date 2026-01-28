@@ -26,10 +26,10 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
         setMessages([
           { role: 'model', text: `Hi there! 👋 I'm your AI assistant for the ${product.name}. Ask me anything about features, specs, or shipping!` }
         ]);
-      } catch (error) {
+      } catch (error: any) {
         console.error("Failed to initialize chat session:", error);
         setMessages([
-          { role: 'model', text: "I'm having trouble starting up right now. Please check if the API key is configured correctly." }
+          { role: 'model', text: `I'm having trouble starting up. Error: ${error.message || JSON.stringify(error)}` }
         ]);
       }
     }
@@ -83,8 +83,8 @@ const AIChat: React.FC<AIChatProps> = ({ product, isOpen, onClose }) => {
           <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${msg.role === 'user'
-                  ? 'bg-slate-900 text-white rounded-br-none'
-                  : 'bg-slate-100 text-slate-800 rounded-bl-none'
+                ? 'bg-slate-900 text-white rounded-br-none'
+                : 'bg-slate-100 text-slate-800 rounded-bl-none'
                 }`}
             >
               {msg.text}
